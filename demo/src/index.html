@@ -1,0 +1,183 @@
+<title>Folio Reader</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400,0..100;9..144,500,0..100;9..144,600,0..100&family=Instrument+Sans:wght@400;500;600&family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600&display=swap">
+<style>
+/*__CSS__*/
+</style>
+
+<div id="app" class="app">
+
+  <!-- ===== Library ===== -->
+  <section id="view-library" class="view view--library is-active" aria-label="Library">
+    <header class="lib-head">
+      <div>
+        <div class="eyebrow" id="lib-date"></div>
+        <div class="wordmark">Folio</div>
+      </div>
+      <button class="icon-btn" data-act="search" aria-label="Search"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></button>
+    </header>
+    <div id="continue"></div>
+    <div class="section-head"><h2>Folders</h2><button class="link" data-act="new-folder">New folder</button></div>
+    <div id="folder-grid" class="folder-grid"></div>
+    <div class="section-head"><h2>Recently added</h2><button class="link" data-folder="all">All books</button></div>
+    <div id="recent-grid" class="book-grid"></div>
+  </section>
+
+  <!-- ===== Folder ===== -->
+  <section id="view-folder" class="view view--folder" aria-label="Folder">
+    <header class="sub-head">
+      <button class="icon-btn ghost" data-act="back" aria-label="Back"><svg class="i" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <div style="flex:1;min-width:0"><h1 id="folder-title"></h1><div class="sub" id="folder-sub"></div></div>
+      <button class="icon-btn ghost" id="folder-menu-btn" data-act="folder-menu" aria-label="Folder options"><svg class="i" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.2" fill="currentColor"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/><circle cx="19" cy="12" r="1.2" fill="currentColor"/></svg></button>
+    </header>
+    <div id="folder-books" class="book-grid"></div>
+    <div id="folder-empty" class="empty hidden">
+      <div class="glyph"><svg class="i" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+      Nothing here yet.<br>Tap <b>+</b> to add files to this folder.
+    </div>
+  </section>
+
+  <!-- ===== Search ===== -->
+  <section id="view-search" class="view" aria-label="Search">
+    <header class="sub-head">
+      <button class="icon-btn ghost" data-act="back" aria-label="Back"><svg class="i" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <label class="search-field"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="search-input" type="search" placeholder="Search titles and authors" autocomplete="off"></label>
+    </header>
+    <div id="search-results" class="book-grid"></div>
+    <div id="search-empty" class="empty hidden">No matches.</div>
+  </section>
+
+  <button id="fab" class="fab" data-act="import" aria-label="Add"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+
+  <!-- ===== Reader ===== -->
+  <section id="reader" class="reader" data-rt="paper" aria-label="Reader">
+    <div class="reader-status top"><span id="rs-ch"></span><span id="rs-clock" class="tnum"></span></div>
+    <div class="reader-viewport" id="rvp"><div class="reader-content" id="rcontent"></div></div>
+    <div class="reader-status bottom"><span id="rs-page" class="tnum"></span><span id="rs-pct" class="tnum"></span></div>
+    <div class="brightness" id="brightness"></div>
+
+    <header class="reader-bar top">
+      <button class="rbtn" data-act="close-reader" aria-label="Back to library"><svg class="i" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <div class="rt"><b id="rb-title"></b><span id="rb-ch"></span></div>
+      <button class="rbtn" id="btn-bookmark" data-act="bookmark" aria-label="Bookmark"><svg class="i" viewBox="0 0 24 24"><path d="M6 4h12v17l-6-4-6 4z"/></svg></button>
+    </header>
+
+    <footer class="reader-bar bottom">
+      <div class="rprog">
+        <button class="rbtn" data-act="prev-ch" aria-label="Previous chapter"><svg class="i" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <input type="range" id="rprog" min="0" max="1000" value="0" aria-label="Book progress">
+        <span class="pct" id="rprog-pct">0%</span>
+        <button class="rbtn" data-act="next-ch" aria-label="Next chapter"><svg class="i" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+      </div>
+      <div class="rtools">
+        <button class="rbtn" data-act="toc"><svg class="i" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>Contents</button>
+        <button class="rbtn" data-act="settings"><svg class="i" viewBox="0 0 24 24"><path d="M4 20l6-15 6 15M6.5 14h7M20 20v-8M17 16h6"/></svg>Display</button>
+        <button class="rbtn" id="btn-night" data-act="night"><svg class="i" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>Night</button>
+        <button class="rbtn" id="btn-full" data-act="fullscreen"><svg class="i" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3"/></svg>Full screen</button>
+      </div>
+    </footer>
+
+    <aside class="rpanel toc" id="panel-toc" aria-label="Contents">
+      <div class="th"><b id="toc-title"></b><span id="toc-sub"></span></div>
+      <ol id="toc-list"></ol>
+    </aside>
+
+    <aside class="rpanel settings" id="panel-settings" aria-label="Display settings">
+      <div class="handle"></div>
+      <div class="srow"><label>Theme</label><div class="themes" id="theme-row">
+        <button class="tsw" data-theme="paper" style="background:#FAF8F1;color:#2A2A27" aria-label="Paper">Aa</button>
+        <button class="tsw" data-theme="sepia" style="background:#F2E7CF;color:#55432E" aria-label="Sepia">Aa</button>
+        <button class="tsw" data-theme="meadow" style="background:#E2EEDF;color:#2B3A31" aria-label="Meadow">Aa</button>
+        <button class="tsw" data-theme="night" style="background:#121412;color:#C4C9C3" aria-label="Night">Aa</button>
+      </div></div>
+      <div class="srow"><label>Font</label><div class="seg" id="font-seg"><button data-font="serif" style="font-family:var(--font-read-serif)">Serif</button><button data-font="sans">Sans</button></div></div>
+      <div class="srow"><label>Size</label><div class="stepper"><button data-act="size-" aria-label="Smaller"><span class="a1">A</span></button><span class="val" id="size-val">18</span><button data-act="size+" aria-label="Larger"><span class="a2">A</span></button></div></div>
+      <div class="srow"><label>Spacing</label><div class="seg" id="lh-seg"><button data-lh="1.55">Compact</button><button data-lh="1.75">Normal</button><button data-lh="1.95">Relaxed</button></div></div>
+      <div class="srow"><label>Pages</label><div class="seg" id="mode-seg"><button data-mode="flip">Flip</button><button data-mode="scroll">Scroll</button></div></div>
+      <div class="srow"><label>Dim</label><div class="brt"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><input type="range" id="bright" min="0" max="70" value="0" aria-label="Dim the page"></div></div>
+    </aside>
+
+    <div class="hint-pill" id="hint"></div>
+  </section>
+
+  <!-- ===== Sheets ===== -->
+  <div class="scrim" id="scrim"></div>
+
+  <div class="sheet" id="sheet-import">
+    <div class="handle"></div>
+    <h3>Add to library</h3>
+    <p class="lede" id="import-lede">Files stay on this device. Nothing is uploaded.</p>
+    <div class="opt-list">
+      <button class="opt" data-act="pick-files"><span class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg></span><span><span class="t">From this device</span><span class="d">TXT · DOCX · MOBI · EPUB · AZW</span></span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></span></button>
+      <button class="opt" data-act="wifi"><span class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M2 9a14 14 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M12 19.5h.01"/></svg></span><span><span class="t">Wi-Fi transfer</span><span class="d">Drop files from your computer</span></span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></span></button>
+      <button class="opt" data-act="link"><span class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1.5 1.5"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1.5-1.5"/></svg></span><span><span class="t">From a link</span><span class="d">Paste a direct file URL</span></span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></span></button>
+      <button class="opt" data-act="new-folder"><span class="ic neutral"><svg class="i" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M12 11v6M9 14h6"/></svg></span><span><span class="t">New folder</span><span class="d">Keep things together</span></span><span class="chev"><svg class="i" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></span></button>
+    </div>
+    <p style="text-align:center;margin-top:14px"><button class="link" data-act="reset" id="reset-btn" style="color:var(--ink-3);font-size:12.5px">Reset demo data</button></p>
+  </div>
+
+  <div class="sheet" id="sheet-progress">
+    <div class="handle"></div>
+    <h3>Adding files</h3>
+    <p class="lede">Reading and building chapters on this device…</p>
+    <div class="progress-list" id="progress-list"></div>
+    <div class="btn-row"><button class="btn primary hidden" id="progress-done" data-act="close">Done</button></div>
+  </div>
+
+  <div class="sheet" id="sheet-wifi">
+    <div class="handle"></div>
+    <h3>Wi-Fi transfer</h3>
+    <p class="lede">Open this address on a computer on the same network and drop files onto the page.</p>
+    <div class="wifi-card"><div class="qr" id="qr"></div><div><div class="url">http://192.168.1.24:8090</div><div class="hint">Keep this screen open while transferring.</div><div class="pulse" style="margin-top:10px">Waiting for files…</div></div></div>
+    <div class="steps"><div><b>1</b><span>Connect the phone and the computer to the same Wi-Fi.</span></div><div><b>2</b><span>Open the address in any browser.</span></div><div><b>3</b><span>Drag files onto the page. They appear here as they arrive.</span></div></div>
+    <div class="btn-row"><button class="btn" data-act="close">Close</button><button class="btn primary" data-act="wifi-sim">Simulate a transfer (demo)</button></div>
+  </div>
+
+  <div class="sheet" id="sheet-link">
+    <div class="handle"></div>
+    <h3>From a link</h3>
+    <p class="lede">Paste a direct link to a TXT, DOCX, MOBI or EPUB file.</p>
+    <div class="field"><label for="link-input">File URL</label><input id="link-input" type="url" placeholder="https://…/handbook.epub" inputmode="url"></div>
+    <div class="progress-list hidden" id="link-progress"><div class="progress-item"><span id="link-name"></span><span class="st" id="link-st">Connecting…</span><div class="bar"><i id="link-bar" style="width:0%"></i></div></div></div>
+    <div class="btn-row"><button class="btn" data-act="close">Cancel</button><button class="btn primary" data-act="link-go" id="link-go">Download</button></div>
+  </div>
+
+  <div class="sheet" id="sheet-folder">
+    <div class="handle"></div>
+    <h3 id="folder-sheet-title">New folder</h3>
+    <div class="field"><label for="folder-name">Name</label><input id="folder-name" type="text" placeholder="e.g. Course notes" maxlength="40" autocomplete="off"></div>
+    <div class="field"><label>Colour</label><div class="swatch-row" id="folder-swatches"></div></div>
+    <div class="btn-row"><button class="btn" data-act="close">Cancel</button><button class="btn primary" id="folder-save" data-act="folder-save">Create</button></div>
+  </div>
+
+  <div class="sheet" id="sheet-folder-menu">
+    <div class="handle"></div>
+    <h3 id="fm-title"></h3>
+    <p class="lede" id="fm-sub"></p>
+    <div class="opt-list">
+      <button class="opt" data-act="folder-edit"><span class="ic neutral"><svg class="i" viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></span><span><span class="t">Rename or recolour</span></span></button>
+      <button class="opt is-danger" data-act="folder-delete"><span class="ic warn"><svg class="i" viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6M10 11v6M14 11v6"/></svg></span><span><span class="t">Delete folder</span><span class="d">Books move to All books</span></span></button>
+    </div>
+  </div>
+
+  <div class="sheet" id="sheet-book">
+    <div class="handle"></div>
+    <div style="display:flex;gap:14px;align-items:center;margin-bottom:14px"><div id="bs-cover" style="width:44px"></div><div style="min-width:0"><h3 id="bs-title" style="font-size:19px;margin:0"></h3><p class="lede" id="bs-sub" style="margin:0"></p></div></div>
+    <div class="eyebrow" style="margin:6px 0 8px">Move to</div>
+    <div class="opt-list" id="bs-folders"></div>
+    <div class="opt-list" style="margin-top:8px"><button class="opt is-danger" data-act="book-delete"><span class="ic warn"><svg class="i" viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6M10 11v6M14 11v6"/></svg></span><span><span class="t" id="bs-del-label">Remove from library</span></span></button></div>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+  <input type="file" id="file-input" multiple accept=".txt,.text,.md,.docx,.mobi,.prc,.azw,.azw3,.epub,text/plain" hidden>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.8.0/mammoth.browser.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+/*__SAMPLES__*/
+/*__PARSERS__*/
+/*__APP__*/
+</script>

@@ -1,0 +1,109 @@
+A Plain Text Test Book
+
+Chapter 1: Test heading 1
+
+This is paragraph 1 of chapter 1 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. This is paragraph 1 of chapter 1 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 2 of chapter 1 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. This is paragraph 2 of chapter 1 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. This is paragraph 2 of chapter 1 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 3 of chapter 1 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 4 of chapter 1 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. This is paragraph 4 of chapter 1 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 5 of chapter 1 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. This is paragraph 5 of chapter 1 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. This is paragraph 5 of chapter 1 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 6 of chapter 1 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 7 of chapter 1 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. This is paragraph 7 of chapter 1 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 8 of chapter 1 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. This is paragraph 8 of chapter 1 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. This is paragraph 8 of chapter 1 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+Chapter 2: Test heading 2
+
+This is paragraph 1 of chapter 2 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. This is paragraph 1 of chapter 2 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. This is paragraph 1 of chapter 2 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 2 of chapter 2 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. This is paragraph 2 of chapter 2 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 3 of chapter 2 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 4 of chapter 2 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. This is paragraph 4 of chapter 2 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. This is paragraph 4 of chapter 2 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 5 of chapter 2 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. This is paragraph 5 of chapter 2 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 6 of chapter 2 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 7 of chapter 2 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. This is paragraph 7 of chapter 2 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. This is paragraph 7 of chapter 2 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 8 of chapter 2 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. This is paragraph 8 of chapter 2 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+Chapter 3: Test heading 3
+
+This is paragraph 1 of chapter 3 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 2 of chapter 3 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 3 of chapter 3 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 4 of chapter 3 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 5 of chapter 3 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 6 of chapter 3 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 7 of chapter 3 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 8 of chapter 3 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+Chapter 4: Test heading 4
+
+This is paragraph 1 of chapter 4 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. This is paragraph 1 of chapter 4 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 2 of chapter 4 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. This is paragraph 2 of chapter 4 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. This is paragraph 2 of chapter 4 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 3 of chapter 4 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 4 of chapter 4 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. This is paragraph 4 of chapter 4 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 5 of chapter 4 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. This is paragraph 5 of chapter 4 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. This is paragraph 5 of chapter 4 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 6 of chapter 4 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 7 of chapter 4 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. This is paragraph 7 of chapter 4 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 8 of chapter 4 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. This is paragraph 8 of chapter 4 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. This is paragraph 8 of chapter 4 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+Chapter 5: Test heading 5
+
+This is paragraph 1 of chapter 5 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. This is paragraph 1 of chapter 5 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. This is paragraph 1 of chapter 5 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 2 of chapter 5 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. This is paragraph 2 of chapter 5 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 3 of chapter 5 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 4 of chapter 5 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. This is paragraph 4 of chapter 5 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. This is paragraph 4 of chapter 5 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 5 of chapter 5 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. This is paragraph 5 of chapter 5 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 6 of chapter 5 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 7 of chapter 5 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. This is paragraph 7 of chapter 5 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. This is paragraph 7 of chapter 5 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 8 of chapter 5 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. This is paragraph 8 of chapter 5 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+Chapter 6: Test heading 6
+
+This is paragraph 1 of chapter 6 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 2 of chapter 6 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 3 of chapter 6 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 4 of chapter 6 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 5 of chapter 6 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 6 of chapter 6 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 7 of chapter 6 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 
+
+This is paragraph 8 of chapter 6 in a plain-text test file. It exists to check that the chapter detector finds English headings and that pagination copes with paragraphs of varying length. 

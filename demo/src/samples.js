@@ -1,0 +1,153 @@
+/* Sample library — all text below is original demo content. */
+const SAMPLE_FOLDERS = [
+  { id: 'f-fiction', name: 'Fiction', tint: 'sage' },
+  { id: 'f-work', name: 'Work', tint: 'sky' },
+  { id: 'f-zh', name: '中文阅读', tint: 'sand' },
+];
+
+const SAMPLE_BOOKS = [
+  {
+    id: 'b-guide', title: 'Start here', author: 'Folio team', format: 'TXT', tint: 'mint', folderId: null,
+    chapters: [
+      { title: 'Welcome', blocks: [
+        'Folio is a quiet place for the things you want to read. Not a store, not a feed: a shelf for your own files, and a page that gets out of the way once you start.',
+        'This short guide is itself a book in your library. Tap the middle of the screen at any time to bring up the controls, and tap again to send them away. Tap the right edge, or swipe, to turn the page.',
+        'Three ideas shape everything in the app:',
+        '- Bringing in a file should take one gesture, not a tutorial.',
+        '- Folders should stay tidy without you tending them.',
+        '- The moment you begin reading, the app should disappear.',
+        'Everything else follows from those three.',
+      ]},
+      { title: 'Bringing in your materials', blocks: [
+        'Tap the round plus button on the library screen. You will see four ways in:',
+        '## From this device',
+        'Pick one or many files from your phone. Folio reads TXT, DOCX, MOBI and EPUB directly on the device. Nothing is uploaded anywhere.',
+        '## Wi-Fi transfer',
+        'Open the address shown on the screen from any computer on the same network, drop files onto the page, and they appear in your library within seconds. This is the fastest way to move a whole course folder across.',
+        '## From a link',
+        'Paste a direct link to a file and Folio downloads it for you. Handy for shared drives and course portals.',
+        '## Share sheet',
+        'In the finished app, Folio will also appear in the system share sheet, so a file received in chat or mail can be opened here in one tap.',
+        'Whichever way a file arrives, Folio detects the title and author, picks a cover colour, splits the text into chapters and remembers where you stop.',
+      ]},
+      { title: 'Folders that stay tidy', blocks: [
+        'A folder in Folio is just a name and a colour. Create one from the library screen, then move books into it from the small menu on each cover.',
+        'Books you have not filed live under All books, so nothing gets lost while you decide where it belongs.',
+        'Two small choices keep the shelf calm: folders are sorted by the book you touched most recently, and the library opens on whatever you were reading last, so the first thing you see is the place you left off.',
+      ]},
+      { title: 'Reading without distraction', blocks: [
+        'When a book opens, the toolbars slide away. The page is edge to edge, the only marks are a faint chapter name at the top and a faint page count at the bottom, in the same ink as the text.',
+        'Tap the centre for controls. From the bottom bar you can jump through the book with the progress slider, open the table of contents, or change how the page looks.',
+        '## Four themes',
+        'Paper is the default: a warm white that suits daylight. Sepia softens the page for the evening. Meadow is a gentle green that many readers find easiest on the eyes for long sessions. Night is a true dark page for reading in bed.',
+        '## Type that fits you',
+        'Choose a serif or a sans, then step the size and the line spacing until the page feels right. Your choice is remembered per book, so a dense report and a novel can each have their own setting.',
+        '## Flip or scroll',
+        'Pages flip by default, like a printed book. If you prefer a continuous column, switch to scroll in the settings panel.',
+        'A brightness slider dims the page independently of the phone, so you can read in a dark room without changing the system setting.',
+      ]},
+      { title: 'Formats we understand', blocks: [
+        'Plain text (TXT) is read with automatic encoding detection, so files saved in Chinese GBK open correctly. Chapters are found from headings such as “Chapter 3” or “第三章”.',
+        'Word documents (DOCX) keep their headings and lists, which become the table of contents.',
+        'MOBI and AZW files are unpacked on the device: the compressed text is decoded and the chapter breaks are preserved.',
+        'EPUB books are opened chapter by chapter, following the order the publisher set.',
+        'PDF is on the roadmap. Because PDF pages are fixed layouts, they need a different reading surface, and we would rather do that properly than badly.',
+        'That is the whole tour. Tap the back arrow in the top bar to return to your library.',
+      ]},
+    ],
+  },
+  {
+    id: 'b-lantern', title: 'The Lantern Keeper', author: 'M. Ashworth', format: 'EPUB', tint: 'slate', folderId: 'f-fiction',
+    chapters: [
+      { title: 'The last ferry', blocks: [
+        'The ferry left at six, and by half past five the harbour had already begun to empty of the day. Gulls sat along the rail of the pier as if they had bought tickets. Ida Marren stood behind them with a suitcase in each hand and tried to remember why she had said yes.',
+        'The letter had been short. Her aunt’s handwriting, slanted hard to the right as though it were trying to leave the page: the lighthouse is still standing, the light is not, come and see for yourself. There was no telephone on the island. There never had been.',
+        'She had told her office she needed a week. She had told her landlord she needed two. She had told herself nothing at all, which was how she usually managed the things that frightened her.',
+        'The ferryman took her cases without a word and stacked them beside a crate of oranges and a bicycle that had lost its front wheel. When the engine caught, the gulls rose together and turned back towards the town, and Ida watched the roofs slide sideways until the mist took them.',
+        'It was a forty-minute crossing. She spent it counting the things she knew about her aunt: that she had kept the light for thirty-one years, that she wrote once a year at midsummer, that she had once sent Ida a stone with a hole worn clean through it and no note to explain what it was for.',
+        'The island came up out of the water all at once, a dark shoulder with a white tower on it. No light. Only the shape of one, like a word she had forgotten how to pronounce.',
+      ]},
+      { title: 'The house under the tower', blocks: [
+        'Her aunt did not meet the boat. A boy of about twelve did, pushing a wheelbarrow, and he loaded her cases into it without being asked and set off up the path at a pace that suggested he was paid by the trip.',
+        '“Is she well?” Ida asked, when she had caught up with him.',
+        '“She’s in the kitchen,” he said, which was not an answer, and then, more kindly, “She said you would ask that.”',
+        'The keeper’s house was low and grey and had grown into the hill the way a limpet grows into a rock. Inside it smelt of paraffin and bread. Her aunt sat at the table with a lamp and a ledger and did not look up until Ida had put both cases down.',
+        '“You came,” said Rue Marren. She was smaller than Ida remembered and her hair had gone entirely white, but the eyes were the same, grey and unblinking, the colour of the sea in the letter she had not written.',
+        '“You said the light was out.”',
+        '“It is.” Rue closed the ledger. “It has been out for nine months. The service sent a man, and the man sent a form, and the form said the station was to be decommissioned. They are very sorry. It is all in the drawer if you want to read it.”',
+        '“Then why am I here?”',
+        'Her aunt looked at her for a long moment. Outside, the wind found a gap in the window frame and made a low note with it, the same note it had probably been making for a century.',
+        '“Because the ships still come,” she said.',
+      ]},
+      { title: 'What the ledger said', blocks: [
+        'The ledger went back further than her aunt. The first hand in it was copperplate, careful, the ink gone brown: wind north-north-east, fresh, one steamer passed at eleven, light good. Page after page of it. Weather and ships and the small confession, every night, that the light had been kept.',
+        'Rue’s entries began in the spring of the year Ida was born. They were terser. Wind. Ships. Light good. Then, nine months ago, a single line: light out, wire sent. And after that the entries continued, every night, exactly as before, except that the last words had changed.',
+        'Light kept by hand.',
+        '“By hand,” Ida said aloud.',
+        '“There is a lamp,” said her aunt from the doorway. “A big one, the old sort. It takes paraffin and it takes patience and it does not throw as far as the electric. But it throws far enough for the channel, and the channel is where they founder.”',
+        '“You carry it up every night.”',
+        '“I did.” Rue held up her right hand, and Ida saw for the first time how the fingers had curled in on themselves. “I can’t manage the stair now. The boy helps when the weather lets him cross. It doesn’t always let him.”',
+        'Ida turned the page. Last night’s entry was in the boy’s round, uncertain writing. Light kept by hand. The night before was blank.',
+      ]},
+      { title: 'The stair', blocks: [
+        'There were a hundred and twelve steps. She counted them the first night, because counting was what she did instead of thinking, and by the fortieth she had stopped being able to do either. The lamp was heavier than a suitcase and warmer than she had expected, and it lit the inside of the tower in a slow swinging circle that made the stair seem to breathe.',
+        'At the top the lantern room was cold and full of wind. The great lens stood dark in its cradle, a thing the size of a wardrobe made entirely of glass, and it was only when Ida set the lamp inside it that she understood what it was for. The small flame went into the glass and came out the other side as a bar of light that reached across the water and did not stop.',
+        'She sat down on the iron floor, and after a while she began to see them. Far out, a green mark and a red one moving together. Then another pair, further off. Then a single white light, low down, moving slowly along the edge of the shoal and turning, when it reached the bar of her lamp, cleanly out into the deep water.',
+        'She stayed until the paraffin ran low. Then she carried the lamp down a hundred and twelve steps, found the ledger on the kitchen table where her aunt had left it open, and picked up the pen.',
+        'Wind south-west, moderate. Three vessels passed. Light kept by hand.',
+        'She had not decided anything. She would tell herself that for several more days. But she wrote the entry in the copperplate she had been taught at school and had not used since, because it seemed to her that the page deserved it, and because some part of her already knew she would be writing it again tomorrow.',
+      ]},
+    ],
+  },
+  {
+    id: 'b-shanju', title: '山居札记', author: '林晚舟', format: 'TXT', tint: 'sand', folderId: 'f-zh',
+    chapters: [
+      { title: '一　搬到山里的第一个月', blocks: [
+        '搬到山里的时候是三月底，桃花还没有开，山路两边只有新翻的泥土的气味。房东是一位姓陈的老先生，把钥匙交给我的时候说了一句话：山里的日子慢，你别急着把它过快了。',
+        '我起初并不明白这句话。城市里的习惯还带在身上，早晨六点醒来，第一件事就是去摸手机，看有没有人找我。山里信号弱，消息常常要等到中午才一并涌进来，于是那几个小时便空出来了，白白地摆在那里，像一张没有铺床单的床。',
+        '后来我学会了用这几个小时去做一些不需要回应的事：烧水，扫院子，把昨天晒的被子收回来，坐在门槛上看对面山坡上雾一点一点退上去。雾退到山顶的时候大约是九点半，比任何一个闹钟都准。',
+        '第一个月结束的那天晚上，我翻开笔记本，发现自己写下的东西很少，画的东西却多了起来。院子里那棵歪脖子的柿子树，我画了七遍。每一遍都不像，可是每一遍都比前一遍更像它自己。',
+      ]},
+      { title: '二　邻居', blocks: [
+        '山里的邻居不是隔壁，而是隔着一道山梁。走过去要二十分钟，喊一声却只要几秒钟，所以大家都习惯了隔着山喊。',
+        '住在东边的是一对种茶的夫妇。丈夫话少，妻子话多，两个人加起来正好是一个正常说话的人。每年清明前后，他们要在半个月里把一整年的收成采完，那半个月里山上到处是竹篓碰撞的声音，还有他们隔着山梁互相报数的声音：这一筐三斤二两，那一筐两斤八。',
+        '我去帮过两天忙。手指被茶芽的汁液染成深绿色，三天才洗掉。回来的时候妻子塞给我一小罐今年的头春，说是工钱。我说这太多了。她说，你采的那些，卖出去还不够买这一罐，我是白送你的，你就当是白拿。',
+        '我把那罐茶放在书桌上，一直没有舍得开。后来才想明白，这样的东西是不该收着的，收着就辜负了它。于是在一个下雨的下午，我把它打开，泡了一杯，坐在窗前喝完了。茶很好。窗外的雨也很好。',
+      ]},
+      { title: '三　夜里的声音', blocks: [
+        '城市的夜是有底噪的，像一台永远不关的冰箱。山里的夜没有底噪，所以一切声音都被放大了：屋檐滴水，虫子在墙角走动，远处不知道谁家的狗叫了两声又停下来，好像自己也觉得没有必要。',
+        '最初的几个星期，我常常在半夜醒来，听见一种低低的、有节奏的声音，从山的另一边传过来，像有人在远处慢慢地推一辆车。我问陈老先生，他想了一会儿说，那是溪水。你听见的是溪水绕过那块大石头的声音，白天被别的声音盖住了，夜里才出来。',
+        '从那以后我便不再害怕夜里的声音了。知道了来处的声音，就不再是噪音，而是一种陪伴。溪水一直在那里推它那辆看不见的车，从我搬来之前就在推，到我搬走之后也还会推下去。',
+        '我开始理解陈老先生那句话了。山里的日子并不是慢，而是每一件事都有它自己的速度，你只需要不去催它。雾按雾的速度退，茶按茶的速度长，溪水按溪水的速度绕过那块石头。一个人住在这样的地方，慢慢地也就找到了自己的速度。',
+      ]},
+    ],
+  },
+  {
+    id: 'b-notes', title: 'Q3 product strategy · reading notes', author: 'Product team', format: 'DOCX', tint: 'sky', folderId: 'f-work',
+    chapters: [
+      { title: 'Summary', blocks: [
+        'These notes summarise the three strategy documents circulated before the quarterly review. They are intended to be read on a phone in fifteen minutes; the full documents are linked from the shared drive.',
+        '## The one-line version',
+        'Retention, not acquisition, is the constraint this quarter. Every proposal below is scored on its effect on week-four retention first, and on reach second.',
+        '## Decisions requested',
+        '- Approve the reading-experience workstream as the single priority for the mobile team.',
+        '- Defer the marketplace exploration to Q4.',
+        '- Agree the success metric: week-four retention from 31% to 38% by the end of the quarter.',
+      ]},
+      { title: 'What the data says', blocks: [
+        'Users who open a second document within three days of installing retain at more than twice the rate of those who open only one. The gap widens at every later checkpoint.',
+        'The most common reason given for not opening a second document is that importing the first one was harder than expected. This is consistent across the interview sample and the survey.',
+        'Users who change any reading setting (theme, font size, or page mode) in their first session retain at 46% at week four, against 27% for those who do not. We read this as a signal that people who make the page their own come back to it.',
+      ]},
+      { title: 'Risks and open questions', blocks: [
+        '## Risks',
+        '- Format coverage: MOBI files from older Kindle libraries use a compression scheme we do not yet support. This affects an estimated 8% of imports.',
+        '- The Wi-Fi transfer feature depends on a local server component that has not yet been reviewed for security.',
+        '## Open questions',
+        '- Should folders be flat, or allow nesting? The interview sample was split. The proposal is to ship flat folders and measure the request rate.',
+        '- Do we need an account at all in the first release? Everything currently works on-device.',
+        '> Recommendation: ship without accounts, keep the door open for optional sync later.',
+      ]},
+    ],
+  },
+];

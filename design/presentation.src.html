@@ -1,0 +1,524 @@
+<meta charset="utf-8">
+<title>Folio Design Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400,0..100;9..144,500,0..100;9..144,600,0..100&family=Instrument+Sans:wght@400;500;600&family=Literata:opsz,wght@7..72,400;7..72,500&display=swap">
+<style>
+:root {
+  --paper: #F4F6F2; --surface: #FFFFFF; --surface-2: #ECF1EC; --ink: #1B1F1C; --ink-2: #5E6763; --ink-3: #98A29C; --line: #E0E6E0;
+  --accent: #178F7C; --accent-ink: #0E6B5C; --accent-soft: #DAF0E9; --warn-soft: #FBEFD9; --warn-ink: #7A5210;
+  --shadow: 0 10px 30px rgba(27,31,28,.08), 0 1px 2px rgba(27,31,28,.06);
+  --font-ui: "Instrument Sans", -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", system-ui, sans-serif;
+  --font-display: "Fraunces", "Songti SC", "Noto Serif SC", Georgia, serif;
+  --font-read: "Literata", "Songti SC", "Noto Serif SC", Georgia, serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #121614; --surface: #1B201D; --surface-2: #232A26; --ink: #E7EBE7; --ink-2: #A3ADA7; --ink-3: #6F7973; --line: #2B332E;
+  --accent: #3FB9A3; --accent-ink: #7ED6C5; --accent-soft: #173B34; --warn-soft: #3D3120; --warn-ink: #E8C27A;
+  --shadow: 0 10px 30px rgba(0,0,0,.35), 0 1px 2px rgba(0,0,0,.3);
+} }
+:root[data-theme="dark"] {
+  --paper: #121614; --surface: #1B201D; --surface-2: #232A26; --ink: #E7EBE7; --ink-2: #A3ADA7; --ink-3: #6F7973; --line: #2B332E;
+  --accent: #3FB9A3; --accent-ink: #7ED6C5; --accent-soft: #173B34; --warn-soft: #3D3120; --warn-ink: #E8C27A;
+  --shadow: 0 10px 30px rgba(0,0,0,.35), 0 1px 2px rgba(0,0,0,.3);
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font-ui); font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+a { color: var(--accent-ink); }
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 500; margin: 0; text-wrap: balance; letter-spacing: -.005em; }
+h1 { font-size: clamp(44px, 7vw, 72px); line-height: 1; font-variation-settings: "opsz" 144, "SOFT" 50; }
+h2 { font-size: clamp(28px, 4vw, 38px); line-height: 1.15; font-variation-settings: "opsz" 72; }
+h3 { font-size: 22px; line-height: 1.25; margin-bottom: 8px; }
+h4 { font-family: var(--font-ui); font-size: 14px; font-weight: 600; letter-spacing: .02em; }
+p { margin: 0 0 1em; max-width: 68ch; }
+li { margin-bottom: .35em; }
+ul, ol { padding-left: 1.3em; margin: 0 0 1em; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
+.muted { color: var(--ink-2); }
+.small { font-size: 13.5px; }
+.tnum { font-variant-numeric: tabular-nums; }
+.page { max-width: 1080px; margin: 0 auto; padding: 0 28px 96px; }
+
+/* nav */
+.nav { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+.nav .in { max-width: 1080px; margin: 0 auto; padding: 10px 28px; display: flex; align-items: center; gap: 18px; }
+.nav .brand { font-family: var(--font-display); font-size: 20px; font-weight: 500; white-space: nowrap; }
+.nav .brand span { color: var(--ink-3); font-family: var(--font-ui); font-size: 13px; margin-left: 8px; font-weight: 500; }
+.nav .steps { display: flex; gap: 4px; overflow-x: auto; margin-left: auto; scrollbar-width: none; }
+.nav .steps::-webkit-scrollbar { display: none; }
+.nav .steps a { text-decoration: none; color: var(--ink-2); font-size: 13.5px; font-weight: 500; padding: 6px 11px; border-radius: 999px; white-space: nowrap; }
+.nav .steps a:hover { background: var(--surface-2); color: var(--ink); }
+.nav .steps a b { color: var(--accent); font-weight: 600; margin-right: 4px; font-variant-numeric: tabular-nums; }
+
+/* hero */
+.hero { padding: 64px 0 48px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: end; }
+.hero .lede { font-size: 20px; line-height: 1.45; color: var(--ink-2); max-width: 30em; margin: 18px 0 0; }
+.hero .facts { display: grid; grid-template-columns: auto 1fr; gap: 6px 18px; font-size: 14px; margin-top: 28px; }
+.hero .facts dt { color: var(--ink-3); font-weight: 600; letter-spacing: .04em; text-transform: uppercase; font-size: 11.5px; padding-top: 3px; }
+.hero .facts dd { margin: 0; }
+.launch { background: var(--surface); border-radius: 22px; padding: 22px; box-shadow: var(--shadow); display: grid; grid-template-columns: 1fr auto; gap: 18px; align-items: center; }
+.launch .qr { width: 112px; height: 112px; background: #fff; border-radius: 12px; padding: 8px; display: grid; place-items: center; }
+.launch .qr canvas, .launch .qr img { width: 96px !important; height: 96px !important; }
+.btn { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: #fff; text-decoration: none; font-weight: 600; padding: 12px 18px; border-radius: 999px; font-size: 15px; }
+.btn.ghost { background: var(--surface-2); color: var(--ink); }
+.launch p { margin: 10px 0 0; font-size: 13.5px; color: var(--ink-2); }
+
+/* sections */
+.step { padding: 56px 0 24px; border-top: 1px solid var(--line); scroll-margin-top: 64px; }
+.step-head { display: grid; grid-template-columns: 96px 1fr; gap: 24px; align-items: start; margin-bottom: 28px; }
+.step-no { font-family: var(--font-display); font-size: 15px; color: var(--accent); font-weight: 600; padding-top: 10px; letter-spacing: .02em; }
+.step-no small { display: block; font-family: var(--font-ui); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); font-weight: 600; }
+.step-head p { color: var(--ink-2); font-size: 17px; margin-top: 10px; }
+.body { display: grid; grid-template-columns: 96px 1fr; gap: 24px; }
+.body > * { grid-column: 2; }
+.body > .full { grid-column: 1 / -1; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.card { background: var(--surface); border-radius: 18px; padding: 20px 22px; box-shadow: var(--shadow); }
+.card h3 { font-size: 20px; }
+.card p:last-child { margin-bottom: 0; }
+.card .tag { display: inline-block; font-size: 11.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--accent-ink); background: var(--accent-soft); padding: 3px 9px; border-radius: 999px; margin-bottom: 10px; }
+.callout { background: var(--accent-soft); color: var(--ink); border-radius: 16px; padding: 18px 22px; margin: 8px 0 20px; }
+.callout.warn { background: var(--warn-soft); }
+.callout b { color: var(--accent-ink); }
+.callout.warn b { color: var(--warn-ink); }
+.callout p { max-width: none; }
+.quote { font-family: var(--font-display); font-size: 22px; line-height: 1.35; margin: 0 0 22px; padding-left: 18px; border-left: 3px solid var(--accent); font-variation-settings: "opsz" 40; }
+.quote small { display: block; font-family: var(--font-ui); font-size: 13px; color: var(--ink-3); margin-top: 8px; }
+
+/* tables */
+.tbl-wrap { overflow-x: auto; margin: 6px 0 24px; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; }
+th { text-align: left; font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); font-weight: 600; padding: 8px 12px 10px 0; border-bottom: 1px solid var(--line); vertical-align: bottom; }
+td { padding: 11px 14px 11px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+td:last-child, th:last-child { padding-right: 0; }
+td b { font-weight: 600; }
+.pill { display: inline-block; font-size: 12px; font-weight: 600; padding: 2px 9px; border-radius: 999px; background: var(--surface-2); color: var(--ink-2); white-space: nowrap; }
+.pill.ok { background: var(--accent-soft); color: var(--accent-ink); }
+.pill.sim { background: var(--warn-soft); color: var(--warn-ink); }
+.pill.no { background: var(--surface-2); color: var(--ink-3); }
+.rec { color: var(--accent-ink); font-weight: 600; }
+
+/* palette */
+.swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; margin: 6px 0 24px; }
+.sw { border-radius: 14px; overflow: hidden; background: var(--surface); box-shadow: var(--shadow); }
+.sw i { display: block; height: 72px; }
+.sw div { padding: 10px 12px 12px; }
+.sw b { display: block; font-size: 14px; }
+.sw span { font-size: 12.5px; color: var(--ink-3); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.sw em { display: block; font-style: normal; font-size: 12.5px; color: var(--ink-2); margin-top: 3px; }
+.tints { display: flex; gap: 8px; flex-wrap: wrap; margin: 0 0 24px; }
+.tints i { width: 44px; height: 44px; border-radius: 10px; display: block; }
+.themes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 6px 0 26px; }
+.theme { border-radius: 16px; padding: 18px 18px 14px; font-family: var(--font-read); font-size: 14.5px; line-height: 1.7; min-height: 190px; display: flex; flex-direction: column; box-shadow: var(--shadow); }
+.theme b { font-family: var(--font-ui); font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; opacity: .6; margin-bottom: 8px; }
+.theme span { font-family: var(--font-ui); font-size: 11.5px; opacity: .55; margin-top: auto; padding-top: 10px; }
+.specimen { background: var(--surface); border-radius: 18px; padding: 22px 26px; box-shadow: var(--shadow); margin-bottom: 24px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+.specimen .f b { display: block; font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 8px; font-family: var(--font-ui); }
+.specimen .f .x { font-size: 30px; line-height: 1.15; }
+.specimen .f p { font-size: 13px; color: var(--ink-2); margin: 8px 0 0; }
+
+/* phones */
+.phones { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 22px 18px; margin: 6px 0 30px; }
+.phone { margin: 0; }
+.phone .frame { background: #1a1c1b; border-radius: 26px; padding: 7px; box-shadow: 0 16px 40px rgba(0,0,0,.22); }
+.phone img { display: block; width: 100%; height: auto; border-radius: 20px; }
+.phone figcaption { font-size: 13px; color: var(--ink-2); margin-top: 10px; line-height: 1.4; }
+.phone figcaption b { color: var(--ink); font-weight: 600; display: block; }
+.wide { margin: 6px 0 30px; }
+.wide img { width: 100%; height: auto; border-radius: 18px; box-shadow: var(--shadow); display: block; }
+.wide figcaption { font-size: 13px; color: var(--ink-2); margin-top: 10px; }
+
+/* diagrams */
+figure.diagram { margin: 6px 0 26px; background: var(--surface); border-radius: 18px; padding: 22px; box-shadow: var(--shadow); }
+figure.diagram svg { width: 100%; height: auto; max-width: 100%; display: block; font-family: var(--font-ui); }
+figure.diagram figcaption { font-size: 13px; color: var(--ink-2); margin-top: 12px; }
+.flows { display: grid; gap: 14px; margin: 6px 0 26px; }
+.flow { display: grid; grid-template-columns: 140px 1fr; gap: 16px; align-items: start; background: var(--surface); border-radius: 16px; padding: 16px 20px; box-shadow: var(--shadow); }
+.flow b { font-family: var(--font-display); font-size: 17px; font-weight: 500; }
+.flow b small { display: block; font-family: var(--font-ui); font-size: 12px; color: var(--ink-3); font-weight: 500; margin-top: 3px; }
+.flow ol { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; counter-reset: s; }
+.flow ol li { margin: 0; font-size: 13.5px; background: var(--surface-2); padding: 8px 12px 8px 10px; border-radius: 10px; counter-increment: s; display: flex; gap: 8px; align-items: center; }
+.flow ol li::before { content: counter(s); font-size: 11px; font-weight: 700; color: var(--accent-ink); background: var(--accent-soft); width: 18px; height: 18px; border-radius: 50%; display: grid; place-items: center; }
+.flow ol li.gesture { background: var(--accent-soft); color: var(--accent-ink); font-weight: 600; }
+.flow ol li.gesture::before { background: var(--accent); color: #fff; }
+
+.checklist { list-style: none; padding: 0; margin: 0 0 20px; display: grid; gap: 10px; }
+.checklist li { display: grid; grid-template-columns: 26px 1fr; gap: 12px; background: var(--surface); border-radius: 14px; padding: 14px 18px; box-shadow: var(--shadow); margin: 0; }
+.checklist li i { width: 22px; height: 22px; border-radius: 6px; border: 2px solid var(--accent); display: block; margin-top: 2px; }
+.checklist li b { display: block; font-weight: 600; }
+.checklist li span { color: var(--ink-2); font-size: 14px; }
+.timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 6px 0 24px; }
+.timeline div { background: var(--surface); border-radius: 14px; padding: 14px 16px; box-shadow: var(--shadow); font-size: 14px; }
+.timeline div b { display: block; font-family: var(--font-display); font-size: 17px; font-weight: 500; margin-bottom: 6px; }
+.timeline div em { display: block; font-style: normal; color: var(--ink-3); font-size: 12px; margin-bottom: 8px; letter-spacing: .04em; text-transform: uppercase; font-weight: 600; }
+footer { border-top: 1px solid var(--line); margin-top: 40px; padding-top: 20px; font-size: 13px; color: var(--ink-3); }
+
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; padding-top: 40px; }
+  .step-head, .body { grid-template-columns: 1fr; gap: 10px; }
+  .body > * { grid-column: 1; }
+  .two, .three, .specimen { grid-template-columns: 1fr; }
+  .themes { grid-template-columns: 1fr 1fr; }
+  .timeline { grid-template-columns: 1fr 1fr; }
+  .flow { grid-template-columns: 1fr; }
+  .page { padding: 0 18px 64px; }
+  .nav .in { padding: 10px 18px; }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+html { scroll-behavior: smooth; }
+</style>
+
+<nav class="nav"><div class="in">
+  <div class="brand">Folio <span>Design review · 01</span></div>
+  <div class="steps">
+    <a href="#discover"><b>1</b>Discover</a><a href="#research"><b>2</b>Research</a><a href="#define"><b>3</b>Define</a><a href="#design"><b>4</b>Design</a><a href="#prototype"><b>5</b>Prototype</a><a href="#decide"><b>6</b>Decide</a>
+  </div>
+</div></nav>
+
+<div class="page">
+
+<header class="hero">
+  <div>
+    <div class="eyebrow">Design review 01 · 1 September 2026</div>
+    <h1 style="margin-top:14px">A reader that gets out of the way.</h1>
+    <p class="lede">You asked for a material reader: fresh and light to look at, easy to fill with your own files, and immersive the moment you start reading. This is the design walk-through — what I understood, what I looked at, what I decided, and a working prototype you can hold — followed by the decisions I need from you.</p>
+    <dl class="facts">
+      <dt>Working title</dt><dd>Folio (placeholder — see Decide, item 1)</dd>
+      <dt>Scope</dt><dd>Phone-first H5 prototype; TXT · DOCX · MOBI/AZW · EPUB on device</dd>
+      <dt>Status</dt><dd>Prototype ready for hands-on review; six decisions open</dd>
+    </dl>
+  </div>
+  <div class="launch">
+    <div>
+      <a class="btn" href="__DEMO_URL__" target="_blank" rel="noopener">Open the prototype ↗</a>
+      <p>Best on a phone — scan the code. Everything you add stays in that browser. Tap <b>+</b> → <b>From this device</b> to drop in one of your own files.</p>
+    </div>
+    <div class="qr" id="qr"></div>
+  </div>
+</header>
+
+<!-- ============ STEP 1 ============ -->
+<section class="step" id="discover">
+  <div class="step-head">
+    <div class="step-no"><small>Step 1</small>Discover</div>
+    <div><h2>What you asked for, and what I heard</h2><p>A brief is a starting point. Before drawing anything I restated it, listed the assumptions I would have to make, and separated what I could decide from what only you can.</p></div>
+  </div>
+  <div class="body">
+    <div class="two">
+      <div class="card"><span class="tag">Your brief</span>
+        <ol>
+          <li>Fresh, light, great aesthetics, proper colour themes.</li>
+          <li>Create folders; download or transfer material into them — TXT, MOBI, DOCX and so on.</li>
+          <li>Once reading begins, it should be immersive.</li>
+        </ol>
+        <p class="muted small" style="margin:0">Plus, from our conversation: an AI assistant will be added later, so the app has to be built to accept one.</p>
+      </div>
+      <div class="card"><span class="tag">What I heard</span>
+        <ul>
+          <li><b>“Material”, not “books”.</b> Novels, yes — but also course handouts, reports, handbooks. Covers won’t exist; the app must make its own.</li>
+          <li><b>Files the person already owns.</b> No store, no feed, no account needed to start. Import is the front door, so it must be effortless.</li>
+          <li><b>Immersive means disappearing.</b> Not animations — the absence of chrome, and controls that appear only when asked for.</li>
+          <li><b>Fresh and light</b> rules out the two clichés: cream-and-serif “library” and black-and-neon “tech”.</li>
+        </ul>
+      </div>
+    </div>
+    <h3 style="margin-top:28px">Assumptions I made to keep moving</h3>
+    <p class="muted">Each of these is reversible. If one is wrong, tell me and the design adjusts; none of them blocks the prototype.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th style="width:26%">Topic</th><th>Assumption</th><th style="width:22%">If wrong…</th></tr>
+      <tr><td><b>Audience</b></td><td>An individual reading their own materials on a phone — student, professional or keen reader. Not a publisher tool, not a shared team library.</td><td>Team sharing changes folders into something closer to shared drives.</td></tr>
+      <tr><td><b>Platform</b></td><td>H5 (mobile web) first, as you asked, designed so the same screens carry into a native iOS/Android shell.</td><td>Native-first would let Wi-Fi transfer and share-sheet import be real from day one.</td></tr>
+      <tr><td><b>Languages</b></td><td>English and Chinese from the start: encoding detection for GBK text, chapter detection for “第三章” as well as “Chapter 3”, CJK paragraph typography.</td><td>Single-language simplifies typography choices slightly.</td></tr>
+      <tr><td><b>Formats</b></td><td>TXT, DOCX, EPUB and MOBI/AZW now. PDF later — it is a fixed-layout format and deserves its own reading surface.</td><td>If PDF is the main material, the reader architecture changes.</td></tr>
+      <tr><td><b>Privacy</b></td><td>Files stay on the device. No upload, no account, nothing to sign in to. Sync is optional and later.</td><td>Cloud sync moves the assistant and storage design server-side.</td></tr>
+      <tr><td><b>Name</b></td><td>“Folio” is a working title — a folio is one leaf of a book, and it rhymes with folders.</td><td>Naming is yours; the wordmark is one line of CSS.</td></tr>
+    </table></div>
+  </div>
+</section>
+
+<!-- ============ STEP 2 ============ -->
+<section class="step" id="research">
+  <div class="step-head">
+    <div class="step-no"><small>Step 2</small>Research</div>
+    <div><h2>Who this is for, and what already exists</h2><p>This is desk research: three personas drawn from the brief and from how reading apps are actually used, and a scan of the apps people would compare us with. I recommend five short user interviews before we commit engineering time — see Decide.</p></div>
+  </div>
+  <div class="body">
+    <div class="three">
+      <div class="card"><span class="tag">Persona</span><h3>The collector</h3>
+        <p>Has years of novels in TXT and MOBI from forums and an old Kindle, in both Chinese and English. Reads an hour a night.</p>
+        <p><b>Pain:</b> half the apps mangle GBK text or choke on MOBI; folders are an afterthought.</p>
+        <p><b>Needs from us:</b> robust formats, eye-care themes, a shelf that stays tidy at 300 books.</p></div>
+      <div class="card"><span class="tag">Persona</span><h3>The student</h3>
+        <p>Gets handouts and readings as DOCX and PDF through a portal. Reads on the commute, one course at a time.</p>
+        <p><b>Pain:</b> moving files from laptop to phone is a chore; nothing remembers where she stopped.</p>
+        <p><b>Needs from us:</b> Wi-Fi transfer of a whole folder, a folder per course, progress that survives.</p></div>
+      <div class="card"><span class="tag">Persona</span><h3>The professional</h3>
+        <p>Receives reports and handbooks as links in chat. Reads in fragments between meetings.</p>
+        <p><b>Pain:</b> opening a document is easy; finding it again next week is not.</p>
+        <p><b>Needs from us:</b> import from a link or the share sheet, “continue reading” front and centre, later an assistant to summarise.</p></div>
+    </div>
+
+    <h3 style="margin-top:30px">Competitive scan</h3>
+    <p class="muted">What each does well, and where it leaves room for us against this brief.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th style="width:18%">App</th><th>Does well</th><th>Falls short for this brief</th></tr>
+      <tr><td><b>Apple Books</b></td><td>Beautiful typography and themes; Collections are a clean folder model.</td><td>Import is by file-app dance; no MOBI; no TXT chapter detection; no Chinese-specific typesetting.</td></tr>
+      <tr><td><b>Kindle</b></td><td>Immersive reading done right: two faint status lines, tap zones, page-turn discipline.</td><td>Importing your own files means e-mailing them to Amazon; folders (“Collections”) are buried.</td></tr>
+      <tr><td><b>WeRead 微信读书</b></td><td>Excellent CJK typography, eye-care themes, social reading.</td><td>Store-first; your own files are second-class; heavy chrome and notifications.</td></tr>
+      <tr><td><b>Moon+ Reader</b></td><td>Reads everything, hundreds of settings, Wi-Fi transfer built in.</td><td>Looks like a settings panel; the opposite of fresh and light.</td></tr>
+      <tr><td><b>KOReader / Legado</b></td><td>Power-user control; open source; great on e-ink.</td><td>Steep learning curve; not something you hand a colleague.</td></tr>
+    </table></div>
+    <div class="callout"><b>Three takeaways that shaped the design.</b>
+      <p style="margin:8px 0 0"><b>1.</b> Import friction is where people give up — every app above makes “get my file in” harder than “read”. <b>2.</b> Immersion is a discipline, not a feature: Kindle wins by showing less. <b>3.</b> Folders exist everywhere and are hidden everywhere; putting them on the home screen is a differentiator on its own.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STEP 3 ============ -->
+<section class="step" id="define">
+  <div class="step-head">
+    <div class="step-no"><small>Step 3</small>Define</div>
+    <div><h2>Principles, structure and the three flows that matter</h2><p>Before any pixels: three principles to judge every screen against, a map of the app, and the flows the prototype had to get right.</p></div>
+  </div>
+  <div class="body">
+    <div class="three">
+      <div class="card"><h3>One gesture in</h3><p>Any file, from anywhere, lands in the library with a title, a cover and chapters — with no settings to visit first. Import is the front door, so it is the big round button.</p></div>
+      <div class="card"><h3>Tidy without tending</h3><p>Folders are a name and a colour. The shelf sorts itself by what you touched last; unfiled books are never lost; the home screen opens on where you left off.</p></div>
+      <div class="card"><h3>Disappear when reading</h3><p>The page is edge to edge. Two faint lines of status in the text’s own ink. Controls arrive on a centre tap and leave on the next.</p></div>
+    </div>
+
+    <h3 style="margin-top:30px">Information architecture</h3>
+    <figure class="diagram">
+      <svg viewBox="0 0 880 330" role="img" aria-label="Map of the app: the Library screen leads to a Folder screen and to the Reader; the Add sheet hangs off both Library and Folder; the Reader opens a Contents panel and a Display panel; a book's options sheet moves or removes it.">
+        <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5 0 10z" fill="currentColor"/></marker></defs>
+        <g fill="none" stroke="currentColor" stroke-width="1.4">
+          <rect x="20" y="110" width="170" height="86" rx="12"/>
+          <rect x="300" y="110" width="170" height="86" rx="12"/>
+          <rect x="600" y="110" width="170" height="86" rx="12" stroke="#178F7C" stroke-width="2"/>
+          <rect x="120" y="250" width="250" height="56" rx="10" stroke-dasharray="4 4"/>
+          <rect x="420" y="250" width="150" height="56" rx="10" stroke-dasharray="4 4"/>
+          <rect x="570" y="20" width="230" height="56" rx="10" stroke-dasharray="4 4"/>
+          <rect x="570" y="250" width="230" height="56" rx="10" stroke-dasharray="4 4"/>
+          <line x1="190" y1="140" x2="298" y2="140" marker-end="url(#ar)"/>
+          <line x1="470" y1="140" x2="598" y2="140" marker-end="url(#ar)"/>
+          <path d="M105 110 C105 72 300 72 598 118" marker-end="url(#ar)"/>
+          <line x1="105" y1="196" x2="150" y2="248" marker-end="url(#ar)"/>
+          <line x1="385" y1="196" x2="340" y2="248" marker-end="url(#ar)"/>
+          <line x1="440" y1="196" x2="470" y2="248" marker-end="url(#ar)"/>
+          <line x1="685" y1="110" x2="685" y2="78" marker-end="url(#ar)"/>
+          <line x1="685" y1="196" x2="685" y2="248" marker-end="url(#ar)"/>
+        </g>
+        <g fill="currentColor" font-size="14" font-weight="600">
+          <text x="105" y="145" text-anchor="middle">Library</text>
+          <text x="385" y="145" text-anchor="middle">Folder</text>
+          <text x="685" y="145" text-anchor="middle" fill="#178F7C">Reader</text>
+          <text x="245" y="273" text-anchor="middle">Add sheet</text>
+          <text x="495" y="273" text-anchor="middle">Book options</text>
+          <text x="685" y="43" text-anchor="middle">Contents</text>
+          <text x="685" y="273" text-anchor="middle">Display</text>
+        </g>
+        <g fill="currentColor" font-size="11.5" opacity=".72">
+          <text x="105" y="165" text-anchor="middle">continue · folders · recent</text>
+          <text x="105" y="181" text-anchor="middle">search</text>
+          <text x="385" y="165" text-anchor="middle">books in this folder</text>
+          <text x="385" y="181" text-anchor="middle">rename · recolour · delete</text>
+          <text x="685" y="165" text-anchor="middle">page · status lines</text>
+          <text x="685" y="181" text-anchor="middle">tap zones · swipe · progress</text>
+          <text x="245" y="292" text-anchor="middle">device · Wi-Fi · link · new folder</text>
+          <text x="495" y="292" text-anchor="middle">move to folder · remove</text>
+          <text x="685" y="62" text-anchor="middle">chapters with reading time</text>
+          <text x="685" y="292" text-anchor="middle">theme · font · size · spacing · flip/scroll · dim</text>
+        </g>
+        <g fill="currentColor" font-size="11" opacity=".72">
+          <text x="244" y="132" text-anchor="middle">opens</text>
+          <text x="534" y="132" text-anchor="middle">opens book</text>
+          <text x="350" y="66" text-anchor="middle">“continue reading” — straight in</text>
+          <text x="95" y="230">+</text>
+          <text x="372" y="230">+</text>
+          <text x="458" y="230">⋯</text>
+          <text x="700" y="98">tap centre</text>
+          <text x="700" y="226">tap centre</text>
+        </g>
+      </svg>
+      <figcaption>Three screens, four sheets. Solid boxes are full screens; dashed boxes are sheets or panels that slide over the screen they belong to. The Reader (green) is where the brief lives; everything else exists to get you there quickly.</figcaption>
+    </figure>
+
+    <h3>Key flows</h3>
+    <div class="flows">
+      <div class="flow"><b>Bring a file in<small>Persona: student, professional</small></b>
+        <ol><li class="gesture">Tap +</li><li>Pick a source</li><li>Choose files (many at once)</li><li>Watch each file get chapters</li><li>Book appears in the current folder</li></ol></div>
+      <div class="flow"><b>Read<small>All personas</small></b>
+        <ol><li class="gesture">Tap a cover</li><li>Page opens where you stopped; chrome is already gone</li><li class="gesture">Tap edges / swipe to turn</li><li class="gesture">Tap centre for controls</li><li>Adjust theme or type; it is remembered</li></ol></div>
+      <div class="flow"><b>Organise<small>Persona: collector, student</small></b>
+        <ol><li>New folder → name + colour</li><li class="gesture">⋯ on a cover</li><li>Move to folder</li><li>Folders reorder by what you touched last</li></ol></div>
+      <div class="flow"><b>Come back<small>Persona: professional</small></b>
+        <ol><li>Open app</li><li>“Continue reading” card is the first thing on screen</li><li class="gesture">One tap</li><li>Same page, same theme</li></ol></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STEP 4 ============ -->
+<section class="step" id="design">
+  <div class="step-head">
+    <div class="step-no"><small>Step 4</small>Design</div>
+    <div><h2>Visual direction</h2><p>Fresh and light, with enough character to be recognised. Colour does the “fresh”; typography does the “character”; whitespace does the “light”.</p></div>
+  </div>
+  <div class="body">
+    <h3>Colour</h3>
+    <p>One accent — a calm verdigris — on a green-biased off-white. The off-white is what makes the app feel fresh rather than cream-and-bookish; the single accent keeps every screen quiet so that book covers, which are generated in eight soft tints, are the colourful thing.</p>
+    <div class="swatches">
+      <div class="sw"><i style="background:#F4F6F2;border-bottom:1px solid #E0E6E0"></i><div><b>Paper</b><span>#F4F6F2</span><em>App ground — off-white, cool-green bias</em></div></div>
+      <div class="sw"><i style="background:#FFFFFF;border-bottom:1px solid #E0E6E0"></i><div><b>Surface</b><span>#FFFFFF</span><em>Cards and sheets</em></div></div>
+      <div class="sw"><i style="background:#1B1F1C"></i><div><b>Ink</b><span>#1B1F1C</span><em>Text — near-black with a green cast</em></div></div>
+      <div class="sw"><i style="background:#5E6763"></i><div><b>Ink 2</b><span>#5E6763</span><em>Secondary text</em></div></div>
+      <div class="sw"><i style="background:#178F7C"></i><div><b>Verdigris</b><span>#178F7C</span><em>The one accent: actions, progress, selection</em></div></div>
+      <div class="sw"><i style="background:#DAF0E9"></i><div><b>Verdigris soft</b><span>#DAF0E9</span><em>Tinted backgrounds for accent icons</em></div></div>
+    </div>
+    <p><b>Cover tints.</b> Files rarely come with artwork, so every book gets a typographic cover on one of eight tints, chosen from the title so the same book always gets the same colour. Folders use the same set.</p>
+    <div class="tints">
+      <i style="background:#CFE3D3" title="sage"></i><i style="background:#CFE0F0" title="sky"></i><i style="background:#DED6F2" title="lilac"></i><i style="background:#F0E3C8" title="sand"></i><i style="background:#F3D6D6" title="rose"></i><i style="background:#CDEDE4" title="mint"></i><i style="background:#F6EDC2" title="butter"></i><i style="background:#D5DCE2" title="slate"></i>
+    </div>
+    <p><b>Reading themes.</b> The reader has its own palette, separate from the app’s, because a page is a different object from a screen. Four themes cover daylight, evening, long sessions and bed; each keeps its status text in the same ink as the body at half strength so nothing competes with the words.</p>
+    <div class="themes">
+      <div class="theme" style="background:#FAF8F1;color:#2A2A27"><b>Paper · default</b>The ferry left at six, and by half past five the harbour had already begun to empty of the day.<span>Warm white for daylight</span></div>
+      <div class="theme" style="background:#F2E7CF;color:#55432E"><b>Sepia</b>The ferry left at six, and by half past five the harbour had already begun to empty of the day.<span>Softer for the evening</span></div>
+      <div class="theme" style="background:#E2EEDF;color:#2B3A31"><b>Meadow</b>The ferry left at six, and by half past five the harbour had already begun to empty of the day.<span>Eye-care green for long sessions</span></div>
+      <div class="theme" style="background:#121412;color:#C4C9C3"><b>Night</b>The ferry left at six, and by half past five the harbour had already begun to empty of the day.<span>True dark for reading in bed</span></div>
+    </div>
+
+    <h3>Typography</h3>
+    <p>Three faces, each with one job. Chinese falls back to the system’s Songti / PingFang so both languages sit comfortably on the same page.</p>
+    <div class="specimen">
+      <div class="f"><b>Display · Fraunces</b><div class="x" style="font-family:var(--font-display);font-variation-settings:'opsz' 72,'SOFT' 50">Folio<br>Recently added</div><p>Wordmark, screen titles, chapter titles and generated covers. Soft, slightly old-style — the bookish note, used sparingly.</p></div>
+      <div class="f"><b>Interface · Instrument Sans</b><div class="x" style="font-family:var(--font-ui);font-size:24px;line-height:1.3">Continue reading<br><span style="font-weight:600">Add to library</span><br><span style="font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:600">Move to</span></div><p>Labels, buttons, sheets, status lines. Clean and a little narrow, so it never crowds the display face.</p></div>
+      <div class="f"><b>Reading · Literata</b><div class="x" style="font-family:var(--font-read);font-size:19px;line-height:1.6">She had not decided anything. She would tell herself that for several more days. 山里的日子慢，你别急着把它过快了。</div><p>Designed for e-readers: even colour, generous x-height, hyphenates well. Sans alternative available in settings.</p></div>
+    </div>
+
+    <h3>The immersive reader, specified</h3>
+    <div class="two">
+      <figure class="diagram" style="margin:0">
+        <svg viewBox="0 0 300 440" role="img" aria-label="Phone screen split into three vertical zones: the left 30% turns to the previous page, the centre toggles the controls, the right 30% turns to the next page. Swiping left or right also turns pages.">
+          <rect x="10" y="10" width="280" height="420" rx="28" fill="none" stroke="currentColor" stroke-width="2"/>
+          <rect x="22" y="22" width="80" height="396" rx="18" fill="#178F7C" opacity=".14"/>
+          <rect x="198" y="22" width="80" height="396" rx="18" fill="#178F7C" opacity=".14"/>
+          <g fill="currentColor" font-size="12" text-anchor="middle">
+            <text x="62" y="210" font-weight="600">Previous</text><text x="62" y="226" opacity=".7">30 %</text>
+            <text x="150" y="204" font-weight="600">Controls</text><text x="150" y="220" opacity=".7">tap to show</text><text x="150" y="234" opacity=".7">tap again to hide</text>
+            <text x="238" y="210" font-weight="600">Next</text><text x="238" y="226" opacity=".7">30 %</text>
+          </g>
+          <g fill="currentColor" font-size="10.5" opacity=".6">
+            <text x="30" y="46">chapter name</text><text x="270" y="46" text-anchor="end">08:10</text>
+            <text x="30" y="408">3 / 18</text><text x="270" y="408" text-anchor="end">42 % · 12 min left</text>
+          </g>
+          <g stroke="currentColor" stroke-width="1.6" fill="none" opacity=".7"><path d="M120 300 H180 M172 294 L180 300 L172 306 M128 294 L120 300 L128 306"/></g>
+          <text x="150" y="324" fill="currentColor" font-size="10.5" text-anchor="middle" opacity=".7">swipe either way</text>
+        </svg>
+        <figcaption>Two faint status lines in the text’s own ink — nothing else on the page. Left and right thirds turn pages; the centre asks for controls.</figcaption>
+      </figure>
+      <div>
+        <div class="tbl-wrap" style="margin-top:0"><table>
+          <tr><th>Behaviour</th><th>Decision</th></tr>
+          <tr><td>Opening a book</td><td>Lands on the last page read with controls already hidden; a one-time hint explains the taps.</td></tr>
+          <tr><td>Pages</td><td>Real pagination (columns), not a scrolled column — the eye keeps its place. Scroll mode available in Display.</td></tr>
+          <tr><td>Controls</td><td>Top bar: back, title, bookmark. Bottom bar: chapter arrows, progress slider, Contents, Display, Night, Full screen.</td></tr>
+          <tr><td>Display panel</td><td>Theme · serif/sans · size · spacing · flip/scroll · dim. Remembered across books.</td></tr>
+          <tr><td>Contents</td><td>Chapter list with reading minutes; current chapter highlighted.</td></tr>
+          <tr><td>Chinese text</td><td>Two-em first-line indent, tighter paragraph spacing, Songti fallback — the convention Chinese readers expect.</td></tr>
+          <tr><td>Keeping the screen on</td><td>Wake-lock while reading; released on exit.</td></tr>
+          <tr><td>Progress</td><td>Saved as chapter + position, so it survives a font-size change or a different screen.</td></tr>
+        </table></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STEP 5 ============ -->
+<section class="step" id="prototype">
+  <div class="step-head">
+    <div class="step-no"><small>Step 5</small>Prototype</div>
+    <div><h2>The working H5 demo</h2><p>Not a click-through mock-up: a single web page that really imports files, really paginates, and really remembers. Open it on your phone and drop in one of your own documents.</p></div>
+  </div>
+  <div class="body">
+    <p><a class="btn" href="__DEMO_URL__" target="_blank" rel="noopener">Open the prototype ↗</a></p>
+    <div class="phones">
+      <figure class="phone"><div class="frame"><img src="__IMG:01-library.png__" alt="Library screen with continue-reading card, folder grid and recent covers"></div><figcaption><b>Library</b>Where you left off, then folders, then what arrived recently. The round + is the front door.</figcaption></figure>
+      <figure class="phone"><div class="frame"><img src="__IMG:02-reader-immersive.png__" alt="Reader page with no controls, faint status lines, first-run hint"></div><figcaption><b>Reader, immersive</b>Edge-to-edge page. The first-run hint teaches the three taps once, then never returns.</figcaption></figure>
+      <figure class="phone"><div class="frame"><img src="__IMG:03-reader-chrome.png__" alt="Reader with top and bottom controls visible"></div><figcaption><b>Reader, controls</b>A centre tap: progress slider, chapter arrows, Contents, Display, Night, Full screen.</figcaption></figure>
+      <figure class="phone"><div class="frame"><img src="__IMG:04-reader-display.png__" alt="Display panel with theme swatches, font, size, spacing, page mode and dim"></div><figcaption><b>Display panel</b>Six adjustments, one panel, no sub-menus.</figcaption></figure>
+      <figure class="phone"><div class="frame"><img src="__IMG:05-reader-night.png__" alt="Reader in Night theme"></div><figcaption><b>Night</b>True dark page, larger type.</figcaption></figure>
+      <figure class="phone"><div class="frame"><img src="__IMG:07-reader-meadow.png__" alt="Reader in Meadow theme showing a chapter opening"></div><figcaption><b>Meadow</b>Chapter openings get room to breathe: number, title, then text.</figcaption></figure>
+      <figure class="phone"><div class="frame"><img src="__IMG:14b-reader-zh.png__" alt="Reader showing Chinese text with two-em indents"></div><figcaption><b>Chinese typesetting</b>Two-em indents, Songti fallback, chapter detected from the “一” heading.</figcaption></figure>
+      <figure class="phone"><div class="frame"><img src="__IMG:06-reader-contents.png__" alt="Contents panel listing chapters with reading minutes"></div><figcaption><b>Contents</b>Chapters with reading minutes; slides over the page from the left.</figcaption></figure>
+      <figure class="phone"><div class="frame"><img src="__IMG:09-import-sheet.png__" alt="Add to library sheet with four sources"></div><figcaption><b>Add to library</b>Four ways in. Opened from inside a folder, files go straight into that folder.</figcaption></figure>
+      <figure class="phone"><div class="frame"><img src="__IMG:10-import-progress.png__" alt="Import progress listing five files with chapter counts"></div><figcaption><b>Import</b>Five formats in one go — each file reports the chapters it found.</figcaption></figure>
+      <figure class="phone"><div class="frame"><img src="__IMG:11-folder-after-import.png__" alt="Folder screen with six generated covers"></div><figcaption><b>Generated covers</b>Every file gets a cover from its title, tinted consistently.</figcaption></figure>
+      <figure class="phone"><div class="frame"><img src="__IMG:12-wifi.png__" alt="Wi-Fi transfer sheet with QR code and address"></div><figcaption><b>Wi-Fi transfer</b>Scan or type the address on a computer, drop files. Simulated in H5 — real in a native shell.</figcaption></figure>
+      <figure class="phone"><div class="frame"><img src="__IMG:13-book-sheet.png__" alt="Book options sheet with move-to-folder list"></div><figcaption><b>Book options</b>Move between folders with one tap; removal asks twice.</figcaption></figure>
+      <figure class="phone"><div class="frame"><img src="__IMG:16-new-folder.png__" alt="New folder sheet with name field and colour swatches"></div><figcaption><b>New folder</b>A name and a colour. That is the whole form.</figcaption></figure>
+    </div>
+    <figure class="wide"><img src="__IMG:15-desktop-frame.png__" alt="The prototype shown inside a phone frame on a desktop browser"><figcaption>On a desktop browser the prototype presents itself in a phone frame, so it reviews well on a big screen too. Files can be dragged straight onto it.</figcaption></figure>
+
+    <h3>What is real and what is simulated</h3>
+    <p class="muted">I would rather you know exactly where the seams are.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th style="width:34%">Capability</th><th style="width:14%">In the demo</th><th>Notes</th></tr>
+      <tr><td><b>Folders</b> — create, rename, recolour, delete, move books</td><td><span class="pill ok">Real</span></td><td>Deleting a folder keeps its books.</td></tr>
+      <tr><td><b>Import from device</b> — TXT, DOCX, EPUB, MOBI/AZW</td><td><span class="pill ok">Real</span></td><td>Parsed on the device: encoding detection (UTF-8, GBK, Big5…), chapter detection, DOCX via mammoth, EPUB spine order, MOBI PalmDOC decoding with title/author metadata.</td></tr>
+      <tr><td><b>Duplicate detection</b></td><td><span class="pill ok">Real</span></td><td>Re-importing the same file reports “Already in your library”.</td></tr>
+      <tr><td><b>Reader</b> — pagination, themes, type, scroll mode, dim, bookmarks, progress</td><td><span class="pill ok">Real</span></td><td>Progress, bookmarks and settings persist in the browser.</td></tr>
+      <tr><td><b>Search</b></td><td><span class="pill ok">Real</span></td><td>Titles and authors; full-text search is a later feature.</td></tr>
+      <tr><td><b>Wi-Fi transfer</b></td><td><span class="pill sim">Simulated</span></td><td>A web page cannot run a local server. A native shell can, and the screen is designed for it. The demo has a “simulate” button.</td></tr>
+      <tr><td><b>From a link</b></td><td><span class="pill sim">Simulated</span></td><td>The demo page is sandboxed from fetching arbitrary URLs; the flow and progress UI are real.</td></tr>
+      <tr><td><b>PDF</b></td><td><span class="pill no">Not yet</span></td><td>Needs a page-image reading surface; see Decide, item 5.</td></tr>
+      <tr><td><b>Older Kindle MOBI (HUFF/CDIC compression), DRM files</b></td><td><span class="pill no">Not yet</span></td><td>Reported cleanly at import rather than failing silently.</td></tr>
+      <tr><td><b>Highlights, notes, sync, share-sheet import</b></td><td><span class="pill no">Not yet</span></td><td>Planned for after the format engine is solid.</td></tr>
+    </table></div>
+
+    <h3>How it was tested</h3>
+    <p>Because there is no converter on this machine, I generated one real file per format — a UTF-8 text with “Chapter n” headings, a GBK-encoded Chinese text with “第n章” headings, a Word document with two heading levels, a four-chapter EPUB with metadata, and a PalmDOC-compressed MOBI with author and title records — and imported all five through the actual file picker in a scripted browser session.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Test file</th><th>Expected</th><th>Result</th></tr>
+      <tr><td class="tnum">plain-english.txt · UTF-8</td><td>6 chapters from “Chapter n”, title line dropped</td><td><span class="pill ok">6 chapters</span></td></tr>
+      <tr><td class="tnum">gbk-chinese.txt · GBK</td><td>Decoded correctly, 5 chapters from “第n章”, CJK layout</td><td><span class="pill ok">5 chapters · CJK</span></td></tr>
+      <tr><td class="tnum">meeting-notes.docx</td><td>3 chapters from Heading 1; Heading 2 kept as sub-headings</td><td><span class="pill ok">3 chapters</span></td></tr>
+      <tr><td class="tnum">epub-test.epub</td><td>Title and author from metadata; 4 chapters in spine order</td><td><span class="pill ok">4 chapters · metadata</span></td></tr>
+      <tr><td class="tnum">mobi-test.mobi · PalmDOC</td><td>Decompressed; author/title from EXTH; 5 chapters at page breaks</td><td><span class="pill ok">5 chapters · metadata</span></td></tr>
+    </table></div>
+  </div>
+</section>
+
+<!-- ============ STEP 6 ============ -->
+<section class="step" id="decide">
+  <div class="step-head">
+    <div class="step-no"><small>Step 6</small>Decide</div>
+    <div><h2>What I need from you</h2><p>Six decisions, each with my recommendation. Reply with a number and a word and I can move.</p></div>
+  </div>
+  <div class="body">
+    <ul class="checklist">
+      <li><i></i><div><b>1 · Name and brand.</b><span>“Folio” is a placeholder. <span class="rec">Recommendation:</span> keep it through the prototype phase; decide the real name after user interviews, when we know how people describe the app.</span></div></li>
+      <li><i></i><div><b>2 · Platform after H5.</b><span>A native shell (iOS/Android, or a wrapped web view) unlocks Wi-Fi transfer, share-sheet import and true full screen. <span class="rec">Recommendation:</span> ship this H5 as the internal test build now; go native for release, reusing the screens as they are.</span></div></li>
+      <li><i></i><div><b>3 · Folders: flat or nested?</b><span>Nesting adds power and a lot of navigation. <span class="rec">Recommendation:</span> flat folders in v1; measure how often people ask for sub-folders.</span></div></li>
+      <li><i></i><div><b>4 · Accounts and sync.</b><span>Everything works on-device today. <span class="rec">Recommendation:</span> no account in v1. Add optional sync later — it also becomes the channel for the assistant if it ever needs a server.</span></div></li>
+      <li><i></i><div><b>5 · PDF priority.</b><span>If your materials are mostly PDF, it moves to the front of the queue and needs its own reading surface. <span class="rec">Recommendation:</span> tell me the real mix of formats in your library; I will scope PDF from that.</span></div></li>
+      <li><i></i><div><b>6 · The AI assistant’s entry points.</b><span>The prototype already normalises every format into one shape — chapters made of paragraphs — which is exactly what an assistant needs. <span class="rec">Recommendation:</span> three entry points, in this order: select text → “Ask”, a chapter-level “Summarise / Explain” in the Contents panel, and a library-level “Find where I read about…”. Say which of these matters most and I will design that surface next.</span></div></li>
+    </ul>
+    <div class="callout"><b>One request that is not a decision.</b><p style="margin:6px 0 0">Five thirty-minute conversations with people who match the personas — ideally two collectors, two students, one professional — before we commit engineering time. I will run them and bring back what changes.</p></div>
+
+    <h3>Proposed next four weeks</h3>
+    <div class="timeline">
+      <div><em>Week 1</em><b>Decide and listen</b>Your six answers; five user interviews; PDF scoping if needed.</div>
+      <div><em>Week 2</em><b>Refine</b>Design changes from interviews; assistant surface design; native-shell spike for Wi-Fi transfer and share sheet.</div>
+      <div><em>Week 3</em><b>Build v1 core</b>Format engine hardened on real files from your library; highlights and notes.</div>
+      <div><em>Week 4</em><b>Test build</b>Internal build to ten people; measure the two numbers that matter — second file imported, and week-two return.</div>
+    </div>
+  </div>
+</section>
+
+<footer>Folio design review 01 · prepared 1 September 2026 · prototype source and test files in the project folder (<code>demo/</code>, <code>test-files/</code>).</footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+try { new QRCode(document.getElementById('qr'), { text: '__DEMO_URL__', width: 96, height: 96, correctLevel: QRCode.CorrectLevel.L }); } catch (e) {}
+</script>
